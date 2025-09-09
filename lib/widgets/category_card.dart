@@ -7,22 +7,21 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        // نستخدم 20% من مساحة الأب المتاحة بدل الشاشة كلها
-        double containerSize = constraints.maxWidth * 0.2;
+    double cardSize = MediaQuery.of(context).size.width * 0.2;
 
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Container(
-              height: containerSize,
-              width: containerSize,
-              margin: EdgeInsets.only(right: 20),
+    return Column(
+      children: [
+        SizedBox(
+          width: cardSize,
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 8), // هامش معقول
               decoration: BoxDecoration(
                 color: catCard.bkcolor,
                 borderRadius: BorderRadius.circular(12),
               ),
+              clipBehavior: Clip.hardEdge,
               child: Padding(
                 padding: const EdgeInsets.all(6.0),
                 child: FittedBox(
@@ -31,14 +30,20 @@ class CategoryCard extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 5),
-            Text(
-              catCard.name,
-              style: TextStyle(fontSize: 16, color: Colors.black),
-            ),
-          ],
-        );
-      },
+          ),
+        ),
+        SizedBox(height: 8),
+        SizedBox(
+          width: cardSize,
+          child: Text(
+            catCard.name,
+            style: TextStyle(fontSize: 14),
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
+            textAlign: TextAlign.center,
+          ),
+        ),
+      ],
     );
   }
 }
