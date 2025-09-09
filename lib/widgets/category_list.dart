@@ -26,6 +26,14 @@ class CategoryList extends StatelessWidget {
       img: 'assets/Group 197.png',
       bkcolor: Colors.greenAccent,
     ),
+    CategoryCardModel(
+      name: 'Tacos',
+      img: 'assets/Group 107.jpg',
+      bkcolor: Colors.orangeAccent),
+      CategoryCardModel(
+      name: 'Tacos',
+      img: 'assets/Group 107.jpg',
+      bkcolor: Colors.orangeAccent)
   ];
 
   @override
