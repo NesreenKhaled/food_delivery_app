@@ -7,40 +7,45 @@ class CategoryList extends StatelessWidget {
 
   final List<CategoryCardModel> categories = [
     CategoryCardModel(
-      name: 'Tacos',
-      img: 'assets/Group 107.jpg',
-      bkcolor: Colors.orangeAccent,
+      name: 'Pizza',
+      img: 'assets/Group 197.png',
+      bkcolor: Color(0xffFFACAC),
     ),
     CategoryCardModel(
-      name: 'Hot Dog',
-      img: 'assets/Group 159.jpg',
-      bkcolor: Colors.yellowAccent,
+      name: 'Tacos',
+      img: 'assets/Group 159.png',
+      bkcolor: Color.fromARGB(255, 216, 230, 188),
+    ),
+    CategoryCardModel(
+      name: 'Fries',
+      img: 'assets/Group 107.png',
+      bkcolor: Color(0xff86E3CE),
     ),
     CategoryCardModel(
       name: 'Burger',
       img: 'assets/Group 169.png',
-      bkcolor: Colors.lightBlueAccent,
+      bkcolor: Color(0xffFFDD95),
+    ),
+    CategoryCardModel(
+      name: 'Tacos',
+      img: 'assets/Group 159.png',
+      bkcolor: Color.fromARGB(255, 216, 230, 188),
+    ),
+
+    CategoryCardModel(
+      name: 'Burger',
+      img: 'assets/Group 169.png',
+      bkcolor: Color(0xffFFDD95),
     ),
     CategoryCardModel(
       name: 'Pizza',
       img: 'assets/Group 197.png',
-      bkcolor: Colors.greenAccent,
+      bkcolor: Color(0xffFFACAC),
     ),
-    CategoryCardModel(
-      name: 'Tacos',
-      img: 'assets/Group 107.jpg',
-      bkcolor: Colors.orangeAccent),
-      CategoryCardModel(
-      name: 'Tacos',
-      img: 'assets/Group 107.jpg',
-      bkcolor: Colors.orangeAccent)
   ];
 
   @override
   Widget build(BuildContext context) {
-    double cardSize = MediaQuery.of(context).size.width * 0.2;
-    double totalHeight = cardSize + 8 + 20; // Container + SizedBox + Text
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -51,7 +56,7 @@ class CategoryList extends StatelessWidget {
             children: [
               Text(
                 'Explorar categorias',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 20, color: Colors.indigo.shade900),
               ),
               Text(
                 'Ver todo',
@@ -60,17 +65,20 @@ class CategoryList extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
-          height: totalHeight, // ارتفاع ديناميكي صحيح
-          child: ListView.builder(
-            itemCount: categories.length,
-            scrollDirection: Axis.horizontal,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: CategoryCard(catCard: categories[index]),
-              );
-            },
+        Expanded(
+          child: SizedBox(
+            // height: 85, 
+            child: ListView.builder(
+              // shrinkWrap: true,
+              itemCount: categories.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 8.0),
+                  child: CategoryCard(catCard: categories[index]),
+                );
+              },
+            ),
           ),
         ),
       ],
